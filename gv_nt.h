@@ -11,11 +11,13 @@ void funcSM_nt();
 // ReadFile
 	// ReadFile_obj
 	set<object*> seto;
-	set<combi*> setcmb;
 	map<string, object*> mapnameo;
 	// ReadFile_conf
+	set<vector<object*>> sm;//for the obj. inseperable
 	// ReadFile_dtime
 // funcPrepare
+// funcCombination_nt
+	set<combi*> setcmb;
 // funcModel_Var
 var *maxL;
 vector<combi*> vecc;
@@ -27,3 +29,4 @@ map<int,double> mapcc; // use cons index to map right side constant
 map<int,set<var*>> mapcv; // use cons index to map corresponding vars
 vector<var*> vvar;
 set<int> qcons;
+

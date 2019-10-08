@@ -1,0 +1,19 @@
+The 7-th sub-optimal Solution
+Pringting Group 1 : 
+o3 o11 o15 o17 o18 o20 
+The total drying time for this layer is: 0.8439528881
+Pringting Group 2 : 
+o2 o6 o7 o9 o14 o21 
+The total drying time for this layer is: 0.8057407791
+Pringting Group 3 : 
+o5 o19 
+The total drying time for this layer is: 0.3243049777
+Pringting Group 4 : 
+o4 o8 o10 o13 o16 o22 
+The total drying time for this layer is: 0.7328176232
+Pringting Group 5 : 
+o111 o112 o113 o121 o122 o123 
+The total drying time for this layer is: 1.9382906117
+
+Total Printing Group: 5
+Sum of Optimization Solution: 9.6451068797

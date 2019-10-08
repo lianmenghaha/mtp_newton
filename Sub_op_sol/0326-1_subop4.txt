@@ -1,0 +1,12 @@
+The 4-th sub-optimal Solution
+Pringting Group 1 : 
+o3 
+The total drying time for this layer is: 0.1115360266
+Pringting Group 2 : 
+o2 
+The total drying time for this layer is: 1.7847544881
+Pringting Group 3 : 
+o1 
+The total drying time for this layer is: 1.7847544881
+
+Total Printing Group: 3

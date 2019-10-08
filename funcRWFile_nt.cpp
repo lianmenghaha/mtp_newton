@@ -59,7 +59,7 @@ void funcReadFile_nt(const char* filename_obj,const char *filename_conf)
 		    ReadFile_conf>>rname;
 		    o->setco.insert(mapnameo[rname]);
 		    //jiance
-		    cout<<rname<<endl;
+		    //cout<<rname<<endl;
 		}
 	    }
 	}
@@ -83,48 +83,91 @@ void funcReadFile_nt(const char* filename_obj,const char *filename_conf)
 		}
 	    }
 	}
+	if(line.compare("inseparable:")==0)
+	{
+	    while(ReadFile_conf>>rname)
+	    {
+		if(rname.compare("FIN")==0)
+		    break;
+		int nobj;
+		vector<object*> vobj;
+		ReadFile_conf>>nobj;
+		for(int i=0;i!=nobj;++i)
+		{
+		    ReadFile_conf>>rname;
+		    vobj.push_back(mapnameo[rname]);
+		    //jiance
+		    //cout<<"aiza "<<rname<<endl;
+		}
+		sm.insert(vobj);
+	    }
+	}
+
     }
     ReadFile_conf.close();
 }
 
-/*//daigai
-void funcWriteFile(const char* filename)
+void funcWriteFile_nt(const char* filename,int psol,const char* filenamesub)
 {
     for(int i=1;i!=maxL->intrval+1;++i)
     {
-		ostringstream convi;
-		convi<<i;
-		string strtmp=filename;
-		strtmp+="_objassign"+convi.str()+".txt";
-		fstream WriteFile_oa(strtmp.c_str(),fstream::out);
-		int itmp=0;
-		for(auto o:seto)
-		{
-			set<object*> settmp={o};
-			WriteFile_oa<<i<<" "<<o->bvl[i]->intrval<<" "<<zvl[settmp][i]->intrval<<endl;
-			if(o->vl->intrval==i)
-			{
-				++itmp;
-				WriteFile_oa<<o->name<<endl;
-				//for(auto oj:seto)
-				//{
-				//	WriteFile_oa<<o->name<<" "<<oj->name<<endl;
-					//for(int j=0;j!=o->opkt.size();++j)
-					  //WriteFile_oa<<j<<" "<<o->dtpkt[{j,oj}]<<endl;
-				//}
-			}
-		
-			for(auto oj:seto)
-			{set<object*> settmp2={o,oj};
-			  WriteFile_oa<<o->name<<" "<<oj->name<<" "<<i<<" "<<zvl[settmp2][i]->intrval<<" ? "<<o->bvl[i]->intrval<<" ? "<<oj->bvl[i]->intrval<<endl;
-			}
-		}
+	ostringstream convi;
+	convi<<i;
+	string strtmp=filename;
+	strtmp+="_objassign"+convi.str()+".txt";
+	fstream WriteFile_oa(strtmp.c_str(),fstream::out);
+	WriteFile_oa<<"Printing Group: "<<i<<endl;
+	for(auto c:setcmb)
+	{
+	    if(c->cpg[i]->intrval==1)
+	    {
+		WriteFile_oa<<"The total number of objects: "<<c->setp.size()<<endl;
+		for(auto o:c->setp)
+		    WriteFile_oa<<o->name<<endl;
+
 		WriteFile_oa.setf(ios_base::fixed,ios_base::floatfield);
 		WriteFile_oa.precision(10);
-		WriteFile_oa<<"The total number of objects: "<<itmp<<endl;
-		WriteFile_oa<<"The total drying time for this layer is: "<<vecl[i-1]->vmaxdt->dourval<<endl;
-		WriteFile_oa<<maxL->intrval;
-		WriteFile_oa.close();
+		WriteFile_oa<<"The total drying time for this layer is: "<<c->vmaxdt<<endl;
+	    }
 	}
-}*/
+	WriteFile_oa.close();
+    }
+
+    //write the information about sub-optimal solution
+    for(int i=0;i!=psol;++i)
+    {
+	ostringstream convi;
+	convi<<i;
+	string strtmp=filenamesub;
+	strtmp+="_subop"+convi.str()+".txt";
+	fstream WriteFile_sub(strtmp.c_str(),fstream::out);
+	WriteFile_sub<<"The "<<i<<"-th sub-optimal Solution"<<endl;
+	double dtmp=0;
+	for(int k=1;k!=maxL->intrval2[i]+1;++k)
+	{
+	    WriteFile_sub<<"Pringting Group "<<k<<" : "<<endl;
+	    for(auto c:setcmb)
+	    {
+		if(c->cpg[k]->intrval2[i]==1)
+		{
+			dtmp+=c->vmaxdt;
+		    for(auto o:c->setp)
+			WriteFile_sub<<o->name<<" ";
+		    WriteFile_sub<<endl;
+		    WriteFile_sub.setf(ios_base::fixed,ios_base::floatfield);
+		    WriteFile_sub.precision(10);
+		    WriteFile_sub<<"The total drying time for this layer is: "<<c->vmaxdt<<endl;
+		}
+	    }
+	
+	}
+	WriteFile_sub<<endl;
+	WriteFile_sub<<"Total Printing Group: "<<maxL->intrval2[i]<<endl;
+	WriteFile_sub<<"Sum of Optimization Solution: "<<dtmp+maxL->intrval2[i]<<endl;
+	WriteFile_sub.close();
+    }
+}
+
+
 #endif
+
