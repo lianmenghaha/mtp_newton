@@ -11,7 +11,7 @@ if [ "$1" == "0" ]; then
 	echo "
 		Case: 2-Comb
 		"
-	time ./main_nt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/objects.txt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/conflict.txt 7 90000 10 Result/0325-2-comb Sub_op_sol/0325-2-comb
+	time ./main_nt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/objects.txt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/conflict.txt 8 90000 10 Result/0325-2-comb Sub_op_sol/0325-2-comb
 elif [ "$1" == "1" ]; then
 	echo "
 		Case: 0326-1
