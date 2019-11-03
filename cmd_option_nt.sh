@@ -11,7 +11,7 @@ if [ "$1" == "0" ]; then
 	echo "
 		Case: 2-Comb
 		"
-	time ./main_nt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/objects.txt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/conflict.txt 8 90000 10 Result/0325-2-comb Sub_op_sol/0325-2-comb
+	time ./main_nt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/objects.txt ExtractedInfo/output20190325/201903251056/190325EDAIDESFORTMT/conflict.txt 20 90000 10 Result/0325-2-comb Sub_op_sol/0325-2-comb
 elif [ "$1" == "1" ]; then
 	echo "
 		Case: 0326-1
@@ -21,17 +21,17 @@ elif [ "$1" == "2" ]; then
 	echo "
 		Case: 0326-2
 		"
-	time ./main_nt ExtractedInfo/output20190326/260319/20190326_2/190326EDALAPLACE2/objects.txt ExtractedInfo/output20190326/260319/20190326_2/190326EDALAPLACE2/conflict.txt 3 3600 10 Result/0326-2 Sub_op_sol/0326-2
+	time ./main_nt ExtractedInfo/output20190326/260319/20190326_2/190326EDALAPLACE2/objects.txt ExtractedInfo/output20190326/260319/20190326_2/190326EDALAPLACE2/conflict.txt 18 3600 10 Result/0326-2 Sub_op_sol/0326-2
 elif [ "$1" == "3" ]; then
 	echo "
 		Case: 0326-3
 		"
-	time ./main_nt ExtractedInfo/output20190326/260319/20190326_3/190326EDALAPLACE3/objects.txt ExtractedInfo/output20190326/260319/20190326_3/190326EDALAPLACE3/conflict.txt 3 3600 10 Result/0326-3 Sub_op_sol/0326-3
+	time ./main_nt ExtractedInfo/output20190326/260319/20190326_3/190326EDALAPLACE3/objects.txt ExtractedInfo/output20190326/260319/20190326_3/190326EDALAPLACE3/conflict.txt 12 3600 10 Result/0326-3 Sub_op_sol/0326-3
 elif [ "$1" == "4" ]; then
 	echo "
 		Case: 0326-4
 		"
-	time ./main_nt ExtractedInfo/output20190326/260319/20190326_4/190326EDALAPLACE4/objects.txt ExtractedInfo/output20190326/260319/20190326_4/190326EDALAPLACE4/conflict.txt 3 3600 10 Result/0326-4 Sub_op-sol/0326-4
+	time ./main_nt ExtractedInfo/output20190326/260319/20190326_4/190326EDALAPLACE4/objects.txt ExtractedInfo/output20190326/260319/20190326_4/190326EDALAPLACE4/conflict.txt 16 3600 10 Result/0326-4 Sub_op-sol/0326-4
 elif [ "$1" == "5" ]; then
 	echo "
 		Case: 0326-5

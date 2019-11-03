@@ -10,3 +10,4 @@ o1
 The total drying time for this layer is: 1.7847544881
 
 Total Printing Group: 3
+Sum of Optimization Solution: 6.6810450028

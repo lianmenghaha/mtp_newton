@@ -8,14 +8,14 @@ void funcSM_nt()
 	cout<<o->name<<": "<<endl;
 	if(o->setco.size()!=0)
 	{
-	    cout<<"Mergen Conflict: ";
+	    cout<<"MC: ";
 	    for(auto on:o->setco)
 		cout<<on->name<<" ";
 	    cout<<endl;
 	}
 	if(o->setbo.size()!=0)
 	{
-	    cout<<"Laplace Pressure Conflict: ";
+	    cout<<"LPC: ";
 	    for(auto on:o->setbo)
 		cout<<on->name<<" ";
 	    cout<<endl;
@@ -23,9 +23,10 @@ void funcSM_nt()
     }
     cout<<endl;
     //layer info
+	double dtmp=0;
     for(int i=1;i!=maxL->intrval+1;++i)
     {
-	cout<<"Printing group "<<i<<":"<<endl;
+	cout<<"Printing Group "<<i<<":"<<endl;
 	for(auto c:setcmb)
 	{
 	    if(c->cpg[i]->intrval==1)
@@ -35,11 +36,15 @@ void funcSM_nt()
 		cout<<endl;
 		cout.setf(ios_base::fixed,ios_base::floatfield);
 		cout.precision(10);
-		cout<<c->vmaxdt<<endl;
+		cout<<"The Drying Time for this Printing Group: "<<c->vmaxdt<<endl;
+		dtmp+=c->vmaxdt;
 	    }
 	}
-	cout<<endl;
+	//cout<<endl;
     }
+	cout<<endl;
+	cout<<"Total Printing Group: "<<maxL->intrval<<endl;
+	cout<<"Total Sum of Drying Time is: "<<dtmp<<endl;
 	/*int lyn=0;
     while(lyn!=maxL->intrval)
     {

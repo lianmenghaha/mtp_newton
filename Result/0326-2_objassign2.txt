@@ -1,0 +1,5 @@
+Printing Group: 2
+The total number of objects: 2
+o2
+o4
+The total drying time for this layer is: 0.1589582929

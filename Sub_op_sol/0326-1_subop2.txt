@@ -8,3 +8,4 @@ The total drying time for this layer is: 1.7897872386
 Pringting Group 3 : 
 
 Total Printing Group: 3
+Sum of Optimization Solution: 4.9013232652
